@@ -806,7 +806,7 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
     }
     if (flag) {
         audioFile.player.currentTime = 0;
-        [self onStatus:MEDIA_STATE mediaId:mediaId param:@(MEDIA_STOPPED)];
+        [self onStatus:MEDIA_STATE mediaId:mediaId param:@(MEDIA_FINISHED)];
     } else {
         [self onStatus:MEDIA_ERROR mediaId:mediaId param:
             [self createMediaErrorWithCode:MEDIA_ERR_DECODE message:nil]];
@@ -823,7 +823,7 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
      if (! keepAvAudioSessionAlwaysActive && self.avSession && ! [self isPlayingOrRecording]) {
          [self.avSession setActive:NO error:nil];
      }
-    [self onStatus:MEDIA_STATE mediaId:mediaId param:@(MEDIA_STOPPED)];
+    [self onStatus:MEDIA_STATE mediaId:mediaId param:@(MEDIA_FINISHED)];
 }
 
 -(void)itemStalledPlaying:(NSNotification *) notification {
