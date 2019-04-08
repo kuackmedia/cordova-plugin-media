@@ -391,7 +391,9 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
                         [avPlayer setRate:customRate];
                     } else {
                         NSLog(@"Playing stream with AVPlayer & default rate");
-                        [avPlayer play];
+                        // [avPlayer play];
+                        avPlayer.automaticallyWaitsToMinimizeStalling = false;
+                        [avPlayer playImmediatelyAtRate:1];
                     }
 
                 } else {
