@@ -59,10 +59,6 @@ id="cordova-plugin-media"
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <config-file parent="/manifest/application" target="AndroidManifest.xml">
-            <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-4561590054506243~5729563277" />
-        </config-file>
-
         <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
         </edit-config>
