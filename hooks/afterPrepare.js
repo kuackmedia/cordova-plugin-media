@@ -26,7 +26,7 @@ module.exports = function (context) {
             obj.NSLocationAlwaysUsageDescription = 'This app requires location access to function properly';
         }
         if (!obj.hasOwnProperty('NSLocationWhenInUseUsageDescription') || obj.NSLocationWhenInUseUsageDescription === '') {
-            obj.NSLocationAlwaysUsageDescription = 'This app requires location access to function properly';
+            obj.NSLocationWhenInUseUsageDescription = 'This app requires location access to function properly';
         }
         // write
         xml = plist.build(obj);
