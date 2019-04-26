@@ -59,16 +59,6 @@ id="cordova-plugin-media"
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <!--
-        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
-            <application android:usesCleartextTraffic="true" />
-        </edit-config>
-        
-        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
-            <activity android:windowSoftInputMode="adjustPan" />
-        </edit-config>
-        -->
-
         <source-file src="src/android/AudioHandler.java" target-dir="src/org/apache/cordova/media" />
         <source-file src="src/android/AudioPlayer.java" target-dir="src/org/apache/cordova/media" />
         <source-file src="src/android/FileHelper.java" target-dir="src/org/apache/cordova/media" />
@@ -86,20 +76,6 @@ id="cordova-plugin-media"
               name="KeepAVAudioSessionAlwaysActive"
               value="$KEEP_AVAUDIOSESSION_ALWAYS_ACTIVE" />
         </config-file>
-        
-        <!--
-        <edit-config file="*-Info.plist" mode="merge" target="ITSAppUsesNonExemptEncryption">
-            <false />
-        </edit-config>
-
-        <edit-config file="*-Info.plist" mode="merge" target="NSLocationAlwaysUsageDescription">
-            <string>This app requires location access to function properly.</string>
-        </edit-config>
-        
-        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
-            <string>This app requires location access to function properly.</string>
-        </edit-config>
-        -->
 
         <header-file src="src/ios/CDVSound.h" />
         <source-file src="src/ios/CDVSound.m" />
@@ -123,4 +99,5 @@ id="cordova-plugin-media"
         </js-module>
     </platform>
 
+    <hook type="after_prepare" src="hooks/afterPrepare.js" />
 </plugin>
