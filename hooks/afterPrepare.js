@@ -28,6 +28,16 @@ module.exports = function (context) {
         if (!obj.hasOwnProperty('NSLocationWhenInUseUsageDescription') || obj.NSLocationWhenInUseUsageDescription === '') {
             obj.NSLocationWhenInUseUsageDescription = 'This app requires location access to function properly';
         }
+        // camera
+        if (!obj.hasOwnProperty('NSCameraUsageDescription') || obj.NSCameraUsageDescription === '') {
+            obj.NSCameraUsageDescription = 'This app requires camera access to take pictures';
+        }
+        if (!obj.hasOwnProperty('NSPhotoLibraryUsageDescription') || obj.NSPhotoLibraryUsageDescription === '') {
+            obj.NSPhotoLibraryUsageDescription = 'This app requires camera access get pictures from there';
+        }
+        if (!obj.hasOwnProperty('NSPhotoLibraryAddUsageDescription') || obj.NSPhotoLibraryAddUsageDescription === '') {
+            obj.NSPhotoLibraryAddUsageDescription = 'This app requires photo library access to save pictures';
+        }
         // write
         xml = plist.build(obj);
         fs.writeFileSync(plistPath, xml, { encoding: 'utf8' });
