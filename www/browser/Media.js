@@ -86,7 +86,7 @@ function createNode (media) {
     };
 
     node.onended = function () {
-        Media.onStatus(media.id, Media.MEDIA_STATE, Media.MEDIA_FINISHED;
+        Media.onStatus(media.id, Media.MEDIA_STATE, Media.MEDIA_FINISHED);
     };
 
     if (media.src) {
