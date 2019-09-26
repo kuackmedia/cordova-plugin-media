@@ -234,6 +234,10 @@ Media.onStatus = function(id, msgType, value) {
 
 };
 
+Media.stopAll = function(id) {
+    exec(null, null, "Media", "stopAll", [id]);
+};
+
 module.exports = Media;
 
 function onMessageFromNative(msg) {

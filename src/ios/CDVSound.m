@@ -598,7 +598,6 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
     }
 }
 
-
 - (void)release:(CDVInvokedUrlCommand*)command
 {
     NSString* mediaId = [command argumentAtIndex:0];
@@ -940,6 +939,19 @@ BOOL keepAvAudioSessionAlwaysActive = NO;
          [self onStatus:MEDIA_STATE mediaId:mediaId param:@(MEDIA_PAUSED)];
      }
  }
+
+- (void)stopAll:(CDVInvokedUrlCommand*)command
+{
+    for (CDVAudioFile* audioFile in [[self soundCache] allValues]) {
+        if (audioFile != nil) {
+            if (audioFile.player != nil) {
+                [audioFile.player stop];
+                audioFile.player.currentTime = 0;
+            }
+        }
+    }
+    [[self soundCache] removeAllObjects];
+}
 
 - (void)messageChannel:(CDVInvokedUrlCommand*)command
 {
