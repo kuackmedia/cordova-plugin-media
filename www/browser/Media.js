@@ -59,11 +59,11 @@ function createNodeIfNotExist() {
 
     var audioNode = document.getElementsByTagName('audio');
     var node;
-    if (!audioNode) {
-        node = new Audio();
-        document.getElementsByName('body')[0].appendChild(node);
-    } else {
+    if (audioNode.length > 0)  {
         node = audioNode[0];
+    } else {
+        node = new Audio();
+        document.getElementsByTagName('body')[0].appendChild(node);
     }
     return node;
 }
