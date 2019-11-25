@@ -55,14 +55,25 @@ var Media = function(src, successCallback, errorCallback, statusCallback) {
         Media.onStatus(this.id, Media.MEDIA_ERROR, { code: MediaError.MEDIA_ERR_ABORTED });
     }
 };
+function createNodeIfNotExist() {
 
+    var audioNode = document.getElementsByTagName('audio');
+    var node;
+    if (!audioNode) {
+        node = new Audio();
+        document.getElementsByName('body')[0].appendChild(node);
+    } else {
+        node = audioNode[0];
+    }
+    return node;
+}
 /**
  * Creates new Audio node and with necessary event listeners attached
  * @param  {Media} media Media object
  * @return {Audio}       Audio element 
  */
 function createNode (media) {
-    var node = new Audio();
+    var node = createNodeIfNotExist();
 
     node.onplay = function () {
         Media.onStatus(media.id, Media.MEDIA_STATE, Media.MEDIA_STARTING);
@@ -233,7 +244,7 @@ Media.prototype.setRate = function() {
  */
 Media.prototype.release = function() {
     try {
-        delete this.node;
+      this.stop();
     } catch (err) {
         Media.onStatus(this.id, Media.MEDIA_ERROR, err);
     }};
@@ -290,5 +301,6 @@ Media.onStatus = function(id, msgType, value) {
         console.error("Received Media.onStatus callback for unknown media :: " + id);
     }
 };
+Media.createNodeIfNotExist = createNodeIfNotExist;
 
 module.exports = Media;
