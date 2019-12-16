@@ -38,6 +38,15 @@ module.exports = function (context) {
         if (!obj.hasOwnProperty('NSPhotoLibraryAddUsageDescription') || obj.NSPhotoLibraryAddUsageDescription === '') {
             obj.NSPhotoLibraryAddUsageDescription = 'This app requires photo library access to save pictures';
         }
+        if (!obj.hasOwnProperty('NSBluetoothPeripheralUsageDescription') || obj.NSBluetoothPeripheralUsageDescription === '') {
+            obj.NSBluetoothPeripheralUsageDescription = 'This app uses Bluetooth to discover nearby Cast devices';
+        }
+        if (!obj.hasOwnProperty('NSBluetoothAlwaysUsageDescription') || obj.NSBluetoothAlwaysUsageDescription === '') {
+            obj.NSBluetoothAlwaysUsageDescription = 'This app uses Bluetooth to discover nearby Cast devices';
+        }
+        if (!obj.hasOwnProperty('NSMicrophoneUsageDescription') || obj.NSMicrophoneUsageDescription === '') {
+            obj.NSMicrophoneUsageDescription = 'This uses microphone access to listen for ultrasonic tokens when pairing with nearby Cast devices';
+        }
         // write
         xml = plist.build(obj);
         fs.writeFileSync(plistPath, xml, { encoding: 'utf8' });
