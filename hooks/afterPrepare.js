@@ -30,13 +30,13 @@ module.exports = function (context) {
         }
         // camera
         if (!obj.hasOwnProperty('NSCameraUsageDescription') || obj.NSCameraUsageDescription === '') {
-            obj.NSCameraUsageDescription = 'This app requires camera access to take pictures';
+            obj.NSCameraUsageDescription = 'Camera access is required to to use a photo as an avatar';
         }
         if (!obj.hasOwnProperty('NSPhotoLibraryUsageDescription') || obj.NSPhotoLibraryUsageDescription === '') {
-            obj.NSPhotoLibraryUsageDescription = 'This app requires camera access get pictures from there';
+            obj.NSPhotoLibraryUsageDescription = 'Photo library access is required to use an image as an avatar';
         }
         if (!obj.hasOwnProperty('NSPhotoLibraryAddUsageDescription') || obj.NSPhotoLibraryAddUsageDescription === '') {
-            obj.NSPhotoLibraryAddUsageDescription = 'This app requires photo library access to save pictures';
+            obj.NSPhotoLibraryAddUsageDescription = 'Photo library write-access is required to save an avatar';
         }
         if (!obj.hasOwnProperty('NSBluetoothPeripheralUsageDescription') || obj.NSBluetoothPeripheralUsageDescription === '') {
             obj.NSBluetoothPeripheralUsageDescription = 'This app uses Bluetooth to discover nearby Cast devices';
