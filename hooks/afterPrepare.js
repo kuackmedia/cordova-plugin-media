@@ -62,6 +62,7 @@ module.exports = function (context) {
                 
                 var applicationTag = manifestRoot.application[0]['$'];
                 applicationTag['android:usesCleartextTraffic'] = true;
+                applicationTag['android:allowBackup'] = false;
                 
                 var activityTag = manifestRoot.application[0].activity[0]['$'];
                 activityTag['android:windowSoftInputMode'] = 'adjustPan';
